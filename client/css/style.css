@@ -1,0 +1,24 @@
+:root {
+  --azul-escuro: #1D2C3E;
+  --vermelho: #E2442F;
+  --fundo: #F9F5EE;
+}
+
+body {
+  background-color: var(--fundo);
+  color: var(--azul-escuro);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: var(--azul-escuro);
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+h1 {
+  color: var(--vermelho);
+}
