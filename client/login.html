@@ -1,16 +1,89 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Login - Jovem Flex</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <header><h1>Login</h1></header>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Jovem Flex</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cor-azul: #24346D;
+      --cor-laranja: #FF6633;
+      --fundo-claro: #f9f9f9;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: var(--fundo-claro);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .logo span:first-child {
+      color: var(--cor-azul);
+      font-weight: bold;
+    }
+
+    .logo span:last-child {
+      color: var(--cor-laranja);
+      font-family: 'Pacifico', cursive;
+    }
+
+    .login-container input {
+      width: 100%;
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .login-container button {
+      background: var(--cor-laranja);
+      color: white;
+      border: none;
+      padding: 0.75rem;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .login-container button:hover {
+      background: #e65520;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="logo">
+      <span>Jovem</span> <span>Flex</span>
+    </div>
     <form>
-      <input type="email" placeholder="Email" /><br /><input
-        type="password"
-        placeholder="Senha"
-      /><br /><button>Entrar</button>
+      <input type="email" placeholder="Email" required>
+      <input type="password" placeholder="Senha" required>
+      <button type="submit">Entrar</button>
     </form>
-  </body>
+  </div>
+</body>
 </html>
