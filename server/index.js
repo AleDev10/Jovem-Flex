@@ -1,9 +1,11 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const authRoutes = require('./routes/auth');
-const path = require('path');
-require('dotenv').config(); // Carrega variáveis do .env
-const { Client } = require('pg');
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const authRoutes = require("./routes/auth");
+const path = require("path");
+require("dotenv").config(); // Carrega variáveis do .env
+const { Client } = require("pg");
 
 // 🔄 Obtém a URL do .env
 const connectionString = process.env.DATABASE_URL;
@@ -20,7 +22,7 @@ async function dropAllTables() {
       SELECT tablename FROM pg_tables WHERE schemaname = 'public';
     `);
 
-    const tables = res.rows.map(row => row.tablename);
+    const tables = res.rows.map((row) => row.tablename);
 
     if (tables.length === 0) {
       console.log("Nenhuma tabela encontrada.");
@@ -48,24 +50,35 @@ async function createTables() {
     const query = `
       CREATE TABLE IF NOT EXISTS usuarios (
         id SERIAL PRIMARY KEY,
-        nome TEXT,
-        numero TEXT UNIQUE,
-        senha TEXT,
-        tipo TEXT
+        nome TEXT NOT NULL,
+        numero TEXT UNIQUE NOT NULL,
+        senha TEXT NOT NULL,
+        tipo TEXT NOT NULL -- 'cliente' ou 'vendedor'
       );
 
       CREATE TABLE IF NOT EXISTS lojas (
         id SERIAL PRIMARY KEY,
-        nome TEXT,
+        nome TEXT NOT NULL,
         descricao TEXT,
         dono_id INTEGER REFERENCES usuarios(id)
+      );
+
+      CREATE TABLE IF NOT EXISTS arquivo (
+        id SERIAL PRIMARY KEY,
+        nome TEXT,
+        oid OID, -- opcional, se usar Large Object do PostgreSQL
+        imagem BYTEA -- para armazenar a imagem diretamente
       );
 
       CREATE TABLE IF NOT EXISTS produtos (
         id SERIAL PRIMARY KEY,
         nome TEXT,
         preco NUMERIC,
-        loja_id INTEGER REFERENCES lojas(id)
+        descricao TEXT,
+        vendido BOOLEAN DEFAULT FALSE,
+        usuario_id INTEGER REFERENCES usuarios(id), -- vendedor dono do produto
+        loja_id INTEGER REFERENCES lojas(id),
+        arquivo_id INTEGER REFERENCES arquivo(id)
       );
 
       CREATE TABLE IF NOT EXISTS pedidos (
@@ -90,10 +103,11 @@ createTables();
 
 //dropAllTables();
 
-
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../client')));
-app.use('/api', authRoutes);
+app.use(cors());
+app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, "../client")));
+app.use("/api", authRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));

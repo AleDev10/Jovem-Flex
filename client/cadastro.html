@@ -1,20 +1,301 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="./image/fiveicon.png" />
     <title>Cadastro - Jovem Flex</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --cor-azul: #24346d;
+        --cor-laranja: #ff6633;
+        --fundo-claro: #f9f9f9;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Montserrat", sans-serif;
+        background: var(--fundo-claro);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      .form-container {
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 450px;
+        text-align: center;
+      }
+
+      .logo {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .logo span:first-child {
+        color: var(--cor-azul);
+        font-weight: bold;
+      }
+
+      .logo span:last-child {
+        color: var(--cor-laranja);
+        font-family: "Pacifico", cursive;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="password"],
+      input[type="tel"] {
+        width: 100%;
+        padding: 0.75rem;
+        margin: 0.5rem 0;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+      }
+
+      .radio-group {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin: 1rem 0;
+      }
+
+      .radio-group label {
+        font-weight: bold;
+        color: var(--cor-azul);
+      }
+
+      .form-container button {
+        background: var(--cor-laranja);
+        color: white;
+        border: none;
+        padding: 0.75rem;
+        width: 100%;
+        border-radius: 6px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.2s;
+      }
+
+      .form-container button:hover,
+      .form-container button:focus {
+        background: #e65520;
+        transform: scale(1.03);
+      }
+
+      .form-container button:active {
+        background: #c94c17;
+        transform: scale(0.98);
+      }
+
+      /* Responsividade para telas de até 500px */
+      @media (max-width: 500px) {
+        body {
+          height: auto;
+          min-height: 100vh;
+          padding: 1rem;
+        }
+
+        .form-container {
+          padding: 1rem;
+          max-width: 100%;
+          border-radius: 8px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .logo {
+          font-size: 1.5rem;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="tel"] {
+          font-size: 0.95rem;
+          padding: 0.6rem;
+        }
+
+        .radio-group {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+
+        .form-container button {
+          font-size: 0.95rem;
+          padding: 0.6rem;
+        }
+      }
+    </style>
   </head>
   <body>
-    <header><h1>Cadastro</h1></header>
-    <form>
-      <input type="text" placeholder="Nome" /><br /><input
-        type="email"
-        placeholder="Email"
-      /><br /><input type="password" placeholder="Senha" /><br /><select>
-        <option>Cliente</option>
-        <option>Vendedor</option>
-        <option>Gerente</option></select
-      ><br /><button>Cadastrar</button>
-    </form>
+    <div class="form-container">
+      <div class="logo"><span>Jovem</span> <span>Flex</span></div>
+      <form id="cadastro-form">
+        <input type="text" placeholder="Nome completo" required />
+        <input
+          type="tel"
+          placeholder="Número de telefone"
+          required
+          pattern="\d{9}"
+          maxlength="9"
+          minlength="9"
+          title="O número deve conter exatamente 9 dígitos"
+        />
+        <input
+          type="password"
+          placeholder="Senha"
+          required
+          minlength="4"
+          maxlength="8"
+          pattern="\d{4,8}"
+          title="A senha deve conter de 4 a 8 dígitos numéricos"
+        />
+        <input
+          type="password"
+          placeholder="Confirmar senha"
+          required
+          minlength="4"
+          maxlength="8"
+          pattern="\d{4,8}"
+          title="A senha deve conter de 4 a 8 dígitos numéricos"
+        />
+
+        <div class="radio-group">
+          <label>
+            <input type="radio" name="tipo" value="cliente" required /> Cliente
+          </label>
+          <label>
+            <input type="radio" name="tipo" value="vendedor" /> Vendedor
+          </label>
+        </div>
+        <input
+          type="text"
+          id="nome-loja"
+          placeholder="Nome da loja"
+          style="display: none; margin-bottom: 0.5rem"
+        />
+
+        <button type="submit">Cadastrar</button>
+      </form>
+      <a
+        href="login.html"
+        style="
+          display: block;
+          margin-top: 1rem;
+          color: #24346d;
+          text-decoration: underline;
+          font-size: 0.95rem;
+        "
+      >
+        Voltar para o login
+      </a>
+    </div>
+    <script>
+      // Mostrar/ocultar campo nome da loja
+      document.querySelectorAll('input[name="tipo"]').forEach((el) => {
+        el.addEventListener("change", function () {
+          const nomeLoja = document.getElementById("nome-loja");
+          if (this.value === "vendedor") {
+            nomeLoja.style.display = "block";
+            nomeLoja.required = true;
+          } else {
+            nomeLoja.style.display = "none";
+            nomeLoja.required = false;
+            nomeLoja.value = "";
+          }
+        });
+      });
+
+      document
+        .getElementById("cadastro-form")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          const inputs = e.target.elements;
+          const nome = inputs[0].value.trim();
+          const numero = inputs[1].value.trim();
+          const senha = inputs[2].value.trim();
+          const confirmarSenha = inputs[3].value.trim();
+          const tipoInput = document.querySelector(
+            'input[name="tipo"]:checked'
+          );
+          const tipo = tipoInput ? tipoInput.value : "";
+          const nomeLoja = document.getElementById("nome-loja").value.trim();
+
+          // Validação dos campos
+          if (!nome || !numero || !senha || !confirmarSenha || !tipo) {
+            alert("Todos os campos são obrigatórios.");
+            return;
+          }
+
+          if (tipo === "vendedor" && !nomeLoja) {
+            alert("O nome da loja é obrigatório para vendedores.");
+            return;
+          }
+
+          if (!/^\d{9}$/.test(numero)) {
+            alert("O número deve conter exatamente 9 dígitos.");
+            return;
+          }
+
+          if (!/^\d{4,8}$/.test(senha)) {
+            alert("A senha deve conter de 4 a 8 dígitos numéricos.");
+            return;
+          }
+
+          if (senha !== confirmarSenha) {
+            alert("As senhas não coincidem.");
+            return;
+          }
+
+          const dados = { nome, numero, senha, tipo };
+          if (tipo === "vendedor") dados.nomeLoja = nomeLoja;
+
+          // Armazena no localStorage antes de enviar ao servidor
+          localStorage.setItem("usuarioCadastro", JSON.stringify(dados));
+
+          // Exemplo de uso do tipo
+          if (tipo === "cliente") {
+            // lógica extra para cliente, se necessário
+          } else if (tipo === "vendedor") {
+            // lógica extra para vendedor, se necessário
+          }
+
+          const resposta = await fetch("http://localhost:3000/api/cadastro", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(dados),
+          });
+
+          const resultado = await resposta.json();
+          alert(resultado.mensagem || resultado.erro);
+
+          // Redireciona conforme o tipo, se o cadastro foi bem-sucedido
+          if (resposta.ok && resultado.mensagem) {
+            if (tipo === "cliente") {
+              window.location.href = "lojas.html";
+            } else if (tipo === "vendedor") {
+              window.location.href = "vendedor.html";
+            }
+          }
+        });
+    </script>
   </body>
 </html>
