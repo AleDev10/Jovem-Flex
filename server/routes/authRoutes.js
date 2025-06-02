@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { registrarUsuario } = require('../controllers/authController');
-const { login } = require('../controllers/authController');
+const { registrarUsuario, login, obterPerfil} = require('../controllers/authController');
+const verificarToken = require('../middlewares/authMiddleware');
 
 //TODO: Rotas de autenticação
 
@@ -9,5 +9,7 @@ const { login } = require('../controllers/authController');
 router.post('/registro', registrarUsuario);
 // POST /auth/login - Fazer login de usuário
 router.post('/login', login);
+// Rota protegida (exige token válido)
+router.get('/perfil', verificarToken, obterPerfil);
 
 module.exports = router;

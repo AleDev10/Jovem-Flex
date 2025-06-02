@@ -1,7 +1,8 @@
-require('dotenv').config(); // 👈 Deve ser uma das primeiras linhas
+require('dotenv').config();
 const pool = require('../db/conn');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const verificarToken = require('../middlewares/authMiddleware'); // Importa o middleware
 
 const registrarUsuario = async (req, res) => {
   const { nome, email, senha, tipo, telefone } = req.body;
@@ -121,5 +122,28 @@ const login = async (req, res) => {
   }
 };
 
+const obterPerfil = async (req, res) => {
+  try {
+    // 1. Busca o usuário no banco usando o ID do JWT
+    const usuario = await pool.query(
+      'SELECT id, nome, email, tipo, telefone FROM usuarios WHERE id = $1',
+      [req.usuarioId] // ID extraído do token no middleware
+    );
+
+    // 2. Se usuário não existir (raro, pois o token era válido)
+    if (usuario.rows.length === 0) {
+      return res.status(404).json({ erro: "Usuário não encontrado." });
+    }
+
+    // 3. Retorna os dados (sem senha)
+    res.json(usuario.rows[0]);
+
+  } catch (err) {
+    console.error("Erro ao obter perfil:", err);
+    res.status(500).json({ erro: "Erro interno no servidor." });
+  }
+};
+
+
 // Exporta as funções para serem usadas nas rotas
-module.exports = { registrarUsuario, login };
+module.exports = { registrarUsuario, login,obterPerfil };
