@@ -104,8 +104,7 @@ const atualizarEndereco = async (req, res) => {
            provincia = COALESCE($2, provincia),
            municipio = COALESCE($3, municipio),
            bairro = COALESCE($4, bairro),
-           coordenadas = COALESCE($5, coordenadas),
-           updated_at = NOW()
+           coordenadas = COALESCE($5, coordenadas)
        WHERE id = $6
        RETURNING *`,
       [pais, provincia, municipio, bairro, coordenadas, id]

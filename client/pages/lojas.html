@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lojas - Jovem Flex</title>
+    <link rel="stylesheet" href="../css/lojas.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container cliente">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h1>JOVEM <span>FLEX</span></h1>
+                <p>Explorar Lojas</p>
+            </div>
+            <nav>
+                <a href="painelcliente.html"><i class="fas fa-arrow-left"></i> Voltar</a>
+                <a href="#" class="active"><i class="fas fa-store"></i> Todas as Lojas</a>
+                <a href="#"><i class="fas fa-search"></i> Pesquisar</a>
+                <a href="#"><i class="fas fa-heart"></i> Favoritos</a>
+                <a href="index.html"><i class="fas fa-sign-out-alt"></i> Sair</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Pesquisar lojas ou produtos...">
+                    <button id="searchButton"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user-profile">
+                    <img src="https://via.placeholder.com/40" alt="Perfil">
+                    <span>Cliente</span>
+                </div>
+            </header>
+
+            <section class="content">
+                <div id="lojasContainer" class="lojas-grid"></div>
+                <div id="produtosContainer" class="produtos-grid" style="display:none;"></div>
+                <div id="detalhesContainer" style="display:none;"></div>
+                
+                <!-- Templates -->
+                <template id="lojaTemplate">
+                    <div class="card-loja">
+                        <img class="loja-imagem" src="" alt="Imagem da Loja">
+                        <div class="loja-info">
+                            <h3 class="loja-nome"></h3>
+                            <p class="loja-localizacao"><i class="fas fa-map-marker-alt"></i> <span></span></p>
+                            <p class="loja-descricao"></p>
+                            <div class="loja-actions">
+                                <button class="btn-visualizar"><i class="fas fa-eye"></i> Ver Loja</button>
+                                <button class="btn-favoritar"><i class="far fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+                
+                <template id="produtoTemplate">
+                    <div class="card-produto">
+                        <img class="produto-imagem" src="" alt="Imagem do Produto">
+                        <div class="produto-info">
+                            <h3 class="produto-nome"></h3>
+                            <p class="produto-preco"></p>
+                            <p class="produto-descricao"></p>
+                            <button class="btn-comprar">Comprar</button>
+                        </div>
+                    </div>
+                </template>
+                
+                <template id="detalhesLojaTemplate">
+                    <div class="detalhes-loja">
+                        <button id="voltarListaLojas" class="btn-voltar"><i class="fas fa-arrow-left"></i> Voltar</button>
+                        <div class="loja-header">
+                            <img class="loja-imagem-detalhes" src="" alt="Imagem da Loja">
+                            <div>
+                                <h2 class="loja-nome-detalhes"></h2>
+                                <p class="loja-localizacao-detalhes"><i class="fas fa-map-marker-alt"></i> <span></span></p>
+                                <p class="loja-contato"><i class="fas fa-phone"></i> <span></span></p>
+                                <p class="loja-avaliacao"><i class="fas fa-star"></i> <span></span></p>
+                            </div>
+                        </div>
+                        <p class="loja-descricao-detalhes"></p>
+                        <h3>Produtos desta loja</h3>
+                        <div class="produtos-loja-grid"></div>
+                    </div>
+                </template>
+            </section>
+        </main>
+    </div>
+
+    <script src="../js/lojas.js"></script>
+</body>
+</html>

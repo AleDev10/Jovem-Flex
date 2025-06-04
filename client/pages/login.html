@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Jovem Flex</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container-login">
+        <div class="logo-login">
+            <h1>JOVEM <span>FLEX</span></h1>
+            <p>Plataforma de Gestão Inteligente</p>
+        </div>
+        
+        <form id="formLogin" class="formulario-login">
+            <div class="grupo-formulario">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+                <i class="fas fa-envelope icone-input"></i>
+            </div>
+            
+            <div class="grupo-formulario">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+                <i class="fas fa-lock icone-input"></i>
+                <span class="mostrar-senha" onclick="togglePassword()">
+                    <i class="fas fa-eye"></i>
+                </span>
+            </div>
+            
+            <div class="lembrar-esqueci">
+                <label class="checkbox-container">
+                    <input type="checkbox" id="lembrar" name="lembrar">
+                    <span class="checkmark"></span>
+                    Lembrar-me
+                </label>
+                <a href="#" id="esqueciSenha">Esqueci minha senha</a>
+            </div>
+            
+            <button type="submit" class="botao-login">
+                <span id="textoBotao">Entrar</span>
+                <div id="loader" class="loader"></div>
+            </button>
+            
+            <div class="opcoes-extras">
+                <p>Novo na Jovem Flex? <a href="cadastro.html">Crie sua conta</a></p>
+                <p>ou <a href="index.html">Voltar à página inicial</a></p>
+            </div>
+        </form>
+        
+        <div class="alerta" id="alerta"></div>
+    </div>
+
+    <script src="../js/login.js"></script>
+</body>
+</html>

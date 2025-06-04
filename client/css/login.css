@@ -1,0 +1,286 @@
+/* Reset básico */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Responsividade global */
+html {
+    font-size: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100vw;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* Estilos específicos para a página de login */
+.container-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f5f7fa;
+    padding: 20px;
+}
+
+.logo-login {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.logo-login h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.logo-login h1 span {
+    color: #2F12E6;
+}
+
+.logo-login p {
+    color: #666;
+    font-size: 16px;
+}
+
+.formulario-login {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    position: relative;
+}
+
+.grupo-formulario {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.grupo-formulario label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+    font-size: 14px;
+}
+
+.grupo-formulario input {
+    width: 100%;
+    padding: 12px 15px 12px 40px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.grupo-formulario input:focus {
+    outline: none;
+    border-color: #2F12E6;
+    box-shadow: 0 0 0 2px rgba(47, 18, 230, 0.1);
+}
+
+.icone-input {
+    position: absolute;
+    left: 15px;
+    top: 38px;
+    color: #666;
+    font-size: 16px;
+}
+
+.mostrar-senha {
+    position: absolute;
+    right: 15px;
+    top: 38px;
+    color: #666;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.lembrar-esqueci {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.checkbox-container {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.checkbox-container:hover input ~ .checkmark {
+    border-color: #2F12E6;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+    background-color: #2F12E6;
+    border-color: #2F12E6;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkbox-container .checkmark:after {
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+#esqueciSenha {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+#esqueciSenha:hover {
+    color: #C30117;
+}
+
+.botao-login {
+    width: 100%;
+    padding: 14px;
+    background-color: #2F12E6;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.botao-login:hover {
+    background-color: #1a0bb3;
+}
+
+.opcoes-extras {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
+
+.opcoes-extras a {
+    color: #2F12E6;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.opcoes-extras a:hover {
+    color: #C30117;
+    text-decoration: underline;
+}
+
+.alerta {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    border-radius: 6px;
+    color: white;
+    font-weight: 500;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translateX(150%);
+    transition: transform 0.3s;
+    z-index: 1000;
+}
+
+.alerta.erro {
+    background-color: #C30117;
+}
+
+.alerta.sucesso {
+    background-color: #28a745;
+}
+
+.alerta.mostrar {
+    transform: translateX(0);
+}
+
+.loader {
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top: 3px solid white;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -10px;
+    margin-left: -10px;
+    display: none;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+    .formulario-login {
+        padding: 30px 10px;
+        max-width: 98vw;
+    }
+    .logo-login h1 {
+        font-size: 22px;
+    }
+    .container-login {
+        padding: 10px;
+    }
+    .opcoes-extras {
+        font-size: 12px;
+    }
+}

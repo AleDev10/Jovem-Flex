@@ -1,1 +1,0 @@
-// Script principal (futuro JS dinâmico)

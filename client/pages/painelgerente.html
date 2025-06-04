@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Gerente - Jovem Flex</title>
+    <link rel="stylesheet" href="../css/painel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container gerente">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h1>JOVEM <span>FLEX</span></h1>
+                <p>Painel do Gerente</p>
+            </div>
+            <nav>
+                <a href="#" class="active"><i class="fas fa-home"></i> Visão Geral</a>
+                <a href="#"><i class="fas fa-users"></i> Usuários</a>
+                <a href="#"><i class="fas fa-store"></i> Todas as Lojas</a>
+                <a href="#"><i class="fas fa-shopping-cart"></i> Vendas</a>
+                <a href="#"><i class="fas fa-chart-pie"></i> Relatórios</a>
+                <a href="#"><i class="fas fa-cog"></i> Configurações</a>
+                <a href="index.html"><i class="fas fa-sign-out-alt"></i> Sair</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <div class="search-bar">
+                    <input type="text" placeholder="Pesquisar...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user-profile">
+                    <img src="https://via.placeholder.com/40" alt="Perfil">
+                    <span>Gerente</span>
+                </div>
+            </header>
+
+            <section class="content">
+                <div class="dashboard-stats">
+                    <div class="big-stat-card">
+                        <h3>Total de Vendas</h3>
+                        <p>1.250.000 Kz</p>
+                        <span class="stats-change positive"><i class="fas fa-arrow-up"></i> 12%</span>
+                    </div>
+                    <div class="big-stat-card">
+                        <h3>Lojas Cadastradas</h3>
+                        <p>48</p>
+                        <span class="stats-change positive"><i class="fas fa-arrow-up"></i> 5%</span>
+                    </div>
+                    <div class="big-stat-card">
+                        <h3>Clientes Ativos</h3>
+                        <p>326</p>
+                        <span class="stats-change negative"><i class="fas fa-arrow-down"></i> 2%</span>
+                    </div>
+                </div>
+
+                <div class="graficos-container">
+                    <div class="grafico-card">
+                        <h3>Vendas Mensais</h3>
+                        <div class="grafico-placeholder">
+                            <!-- Espaço para gráfico de vendas -->
+                            <img src="https://via.placeholder.com/400x200" alt="Gráfico de Vendas">
+                        </div>
+                    </div>
+                    <div class="grafico-card">
+                        <h3>Top Lojas</h3>
+                        <div class="grafico-placeholder">
+                            <!-- Espaço para gráfico de lojas -->
+                            <img src="https://via.placeholder.com/400x200" alt="Gráfico de Lojas">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tabela-dados">
+                    <h2>Últimas Transações</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Cliente</th>
+                                <th>Loja</th>
+                                <th>Valor</th>
+                                <th>Data</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#10025</td>
+                                <td>Carlos Santos</td>
+                                <td>Tech Store</td>
+                                <td>85.000 Kz</td>
+                                <td>10/06/2023</td>
+                                <td><span class="status concluido">Concluído</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../js/painelgerente.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Jovem Flex</title>
+    <link rel="stylesheet" href="../css/cadastrar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container-cadastro">
+        <div class="logo-cadastro">
+            <h1>JOVEM <span>FLEX</span></h1>
+            <p>Crie sua conta e comece a usar</p>
+        </div>
+        
+        <form id="formCadastro" class="formulario-cadastro">
+            <div class="etapas">
+                <div class="passo passo-1 ativo">
+                    <h2>Selecione seu tipo de perfil</h2>
+                    <div class="opcoes-perfil">
+                        <label class="card-perfil">
+                            <input type="radio" name="tipo" value="cliente" required>
+                            <div class="conteudo-perfil">
+                                <i class="fas fa-user"></i>
+                                <h3>Cliente</h3>
+                                <p>Compre produtos e serviços</p>
+                            </div>
+                        </label>
+                        
+                        <label class="card-perfil">
+                            <input type="radio" name="tipo" value="vendedor" required>
+                            <div class="conteudo-perfil">
+                                <i class="fas fa-store"></i>
+                                <h3>Vendedor</h3>
+                                <p>Venda seus produtos</p>
+                            </div>
+                        </label>
+                        
+                        <label class="card-perfil">
+                            <input type="radio" name="tipo" value="gerente" required>
+                            <div class="conteudo-perfil">
+                                <i class="fas fa-user-tie"></i>
+                                <h3>Gerente</h3>
+                                <p>Gerencie sua equipe</p>
+                            </div>
+                        </label>
+                    </div>
+                    
+                    <button type="button" class="botao-proximo">Próximo</button>
+                </div>
+                
+                <div class="passo passo-2">
+                    <h2>Informações pessoais</h2>
+                    <div class="grupo-formulario">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+                        <i class="fas fa-user icone-input"></i>
+                    </div>
+                    
+                    <div class="grupo-formulario">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+                        <i class="fas fa-envelope icone-input"></i>
+                    </div>
+                    
+                    <div class="grupo-formulario">
+                        <label for="telefone">Telefone</label>
+                        <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
+                        <i class="fas fa-phone icone-input"></i>
+                    </div>
+                    
+                    <div class="grupo-formulario">
+                        <label for="senha">Senha</label>
+                        <input type="password" id="senha" name="senha" placeholder="Crie uma senha segura" required>
+                        <i class="fas fa-lock icone-input"></i>
+                        <span class="mostrar-senha" onclick="togglePassword('senha')">
+                            <i class="fas fa-eye"></i>
+                        </span>
+                    </div>
+                    
+                    <div class="grupo-formulario">
+                        <label for="confirmarSenha">Confirmar Senha</label>
+                        <input type="password" id="confirmarSenha" name="confirmarSenha" placeholder="Repita sua senha" required>
+                        <i class="fas fa-lock icone-input"></i>
+                        <span class="mostrar-senha" onclick="togglePassword('confirmarSenha')">
+                            <i class="fas fa-eye"></i>
+                        </span>
+                    </div>
+                    
+                    <div class="botoes-navegacao">
+                        <button type="button" class="botao-voltar">Voltar</button>
+                        <button type="submit" class="botao-cadastrar">
+                            <span id="textoBotaoCadastro">Cadastrar</span>
+                            <div id="loaderCadastro" class="loader"></div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        
+        <div class="opcoes-extras">
+            <p>Já tem uma conta? <a href="login.html">Faça login</a></p>
+            <p>ou <a href="index.html">Voltar à página inicial</a></p>
+        </div>
+        
+        <div class="alerta" id="alerta"></div>
+    </div>
+
+    <script src="../js/cadrastrar.js"></script>
+</body>
+</html>

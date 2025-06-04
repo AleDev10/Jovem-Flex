@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Cliente - Jovem Flex</title>
+    <link rel="stylesheet" href="../css/painel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container cliente">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h1>JOVEM <span>FLEX</span></h1>
+                <p>Painel do Cliente</p>
+            </div>
+            <nav>
+                <a href="#" class="active"><i class="fas fa-home"></i> Início</a>
+                <a href="#"><i class="fas fa-store"></i> Lojas</a>
+                <a href="#"><i class="fas fa-shopping-bag"></i> Meus Pedidos</a>
+                <a href="#"><i class="fas fa-heart"></i> Favoritos</a>
+                <a href="#"><i class="fas fa-cog"></i> Configurações</a>
+                <a href="index.html"><i class="fas fa-sign-out-alt"></i> Sair</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <div class="search-bar">
+                    <input type="text" placeholder="Pesquisar lojas ou produtos...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user-profile">
+                    <img src="https://via.placeholder.com/40" alt="Perfil">
+                    <span>Cliente</span>
+                </div>
+            </header>
+
+            <section class="content">
+                <h2>Lojas Disponíveis</h2>
+                <div class="lojas-grid">
+                    <!-- Loja 1 -->
+                    <div class="card-loja">
+                        <img src="https://via.placeholder.com/300x200" alt="Loja 1">
+                        <div class="loja-info">
+                            <h3>Tech Store</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> Luanda, Angola</p>
+                            <div class="loja-actions">
+                                <button class="btn-visualizar"><i class="fas fa-eye"></i> Ver</button>
+                                <button class="btn-favoritar"><i class="far fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Loja 2 -->
+                    <div class="card-loja">
+                        <img src="https://via.placeholder.com/300x200" alt="Loja 2">
+                        <div class="loja-info">
+                            <h3>Moda Jovem</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> Benguela, Angola</p>
+                            <div class="loja-actions">
+                                <button class="btn-visualizar"><i class="fas fa-eye"></i> Ver</button>
+                                <button class="btn-favoritar"><i class="far fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="produtos-destaque">
+                    <h2>Produtos em Destaque</h2>
+                    <div class="produtos-grid">
+                        <!-- Produto 1 -->
+                        <div class="card-produto">
+                            <img src="https://via.placeholder.com/150" alt="Produto 1">
+                            <div class="produto-info">
+                                <h3>Smartphone X</h3>
+                                <p class="preco">25.000 Kz</p>
+                                <button class="btn-comprar">Comprar</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Produto 2 -->
+                        <div class="card-produto">
+                            <img src="https://via.placeholder.com/150" alt="Produto 2">
+                            <div class="produto-info">
+                                <h3>Notebook Pro</h3>
+                                <p class="preco">120.000 Kz</p>
+                                <button class="btn-comprar">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../js/painelcliente.js"></script>
+</body>
+</html>
